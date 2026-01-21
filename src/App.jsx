@@ -38,13 +38,13 @@ function App() {
     return (
       <div className="lock-screen">
         <h2>🔒 Private Space</h2>
-        <p>Only for Tannu</p>
+        <p>Only for Tannu 💖</p>
         <input
           placeholder="Enter secret name"
           value={secret}
           onChange={(e) => setSecret(e.target.value)}
         />
-        <button onClick={() => secret.toLowerCase() === 'tannu' && setUnlocked(true)}>
+        <button onClick={() => secret.toLowerCase() === 'phle boobies dikhao' && setUnlocked(true)}>
           Unlock 💖
         </button>
       </div>
