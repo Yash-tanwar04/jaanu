@@ -76,8 +76,8 @@ function App() {
           It’s just me choosing you again.
         </p>
         <p className="description">
-          Meri KuchhuPuchhu and Wifey  
-          Kattar Man hater
+          Meri KuchhuPuchhu and Wifey </p>  
+          <p>Kattar Man hater
         </p>
       </header>
 
