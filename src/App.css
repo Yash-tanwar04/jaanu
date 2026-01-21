@@ -1,0 +1,249 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff5f8;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+/* ===== GLOBAL WRAPPER ===== */
+.app-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== CONTENT CONTAINER (KEY FIX) ===== */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.title-wrapper {
+  display: inline-block;
+  padding: 18px 48px;
+  border-radius: 40px;
+  border: 3px solid #ff5c8a;
+  margin-bottom: 30px;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+.title-animated {
+  font-size: 3.5rem;
+  color: #ff5c8a;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 80px 0;
+}
+
+.bg-pink {
+  background: #ffe6ef;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 48px;
+}
+
+/* ===== CARDS ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 22px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(255, 92, 138, 0.22);
+}
+
+/* ===== LOVE GAME ===== */
+.love-game {
+  text-align: center;
+}
+
+.love-game p {
+  margin-bottom: 20px;
+}
+
+.love-game button {
+  margin: 10px;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #ff5c8a;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.love-game button:hover {
+  transform: scale(1.05);
+}
+
+.celebrate-box {
+  background: white;
+  padding: 40px;
+  border-radius: 26px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3.2rem;
+  color: #ff5c8a;
+}
+
+/* ===== PHOTOS ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 22px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== FINAL LETTER ===== */
+.final-letter-section {
+  background: linear-gradient(135deg, #ffe6ef, #fff);
+}
+
+.final-letter-card {
+  background: white;
+  padding: 60px;
+  border-radius: 34px;
+  box-shadow: 0 30px 60px rgba(255, 92, 138, 0.25);
+}
+
+.final-letter-text {
+  white-space: pre-line;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+/* ===== HEARTS ===== */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: floatHearts 6s linear infinite;
+}
+
+@keyframes floatHearts {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px #ff5c8a; }
+  50% { box-shadow: 0 0 24px #ff5c8a; }
+  100% { box-shadow: 0 0 10px #ff5c8a; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .card-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title-animated {
+    font-size: 2.4rem;
+  }
+
+  .final-letter-card {
+    padding: 36px;
+  }
+}
+/* ===== LOVE GAME RUNAWAY BUTTON ===== */
+
+.love-game {
+  text-align: center;
+}
+
+.love-buttons {
+  position: relative;
+  height: 160px;
+  margin-top: 30px;
+}
+
+.yes-btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #ff5c8a;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.yes-btn:hover {
+  transform: scale(1.05);
+}
+
+.no-btn {
+  position: absolute;
+  top: 60px;
+  left: 55%;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  background: #ddd;
+  color: #555;
+  cursor: pointer;
+  transition: top 0.25s ease, left 0.25s ease;
+}
