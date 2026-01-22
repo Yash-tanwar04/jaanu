@@ -86,7 +86,7 @@ function App() {
         <h2 className="section-title">Why You're Different 💕</h2>
         <div className="card-grid">
           <div className="card">You don't try to be cute. Tu bas hai meri cutu.</div>
-          <div className="card">Galat hoke bhi tu mera khayal rakhti hai.</div>
+          <div className="card">You think of me so selflessly even if you aren't right.</div>
           <div className="card">You made love feel easy, not scary.</div>
         </div>
       </section>
@@ -130,7 +130,7 @@ function App() {
     ) : (
       <div className="celebrate-box">
         <h3>YAYYYYY 💕</h3>
-        <p>You were always mine 🤍</p>
+        <p>You were always mine and will be 🤍</p>
       </div>
     )}
   </div>
@@ -142,8 +142,8 @@ function App() {
         <h2 className="section-title">When We’re Not Together 🕊️</h2>
         <div className="card-grid">
           <div className="card">Tu mere dimag me rehti hai 24/7.</div>
-          <div className="card">GulluGullu thoughts never stop 😭</div>
-          <div className="card">I wait just to talk to you peacefully.</div>
+          <div className="card">SaxSux thoughts never stop 😭</div>
+          <div className="card">I wait just to talk to you and spill the tea.</div>
         </div>
       </section>
 
@@ -169,7 +169,7 @@ function App() {
         <div className="card-grid">
           <div className="card">I’ll choose you even on hard days.</div>
           <div className="card">I won’t leave when things get messy.</div>
-          <div className="card">Flowers, dark chocolate & cold coffee — always.</div>
+          <div className="card">I'll buy you Flowers, dark chocolate & cold coffee — always.</div>
         </div>
       </section>
 
