@@ -247,3 +247,119 @@ body {
   cursor: pointer;
   transition: top 0.25s ease, left 0.25s ease;
 }
+/* ===============================
+   LOCK SCREEN (SECRET CODE PAGE)
+================================ */
+
+.lock-screen {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe6ef, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lock-card {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(255, 92, 138, 0.25);
+  animation: lockFadeIn 1s ease;
+}
+
+/* glowing border */
+.lock-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 33px;
+  background: linear-gradient(120deg, #ff5c8a, #ff9bb8);
+  z-index: -1;
+  filter: blur(12px);
+  animation: borderGlow 3s infinite ease-in-out;
+}
+
+/* heart icon */
+.lock-heart {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: heartPulse 2s infinite;
+}
+
+.lock-title {
+  font-size: 2rem;
+  color: #ff5c8a;
+  margin-bottom: 8px;
+}
+
+.lock-subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* input */
+.lock-input {
+  width: 260px;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: 2px solid #ffd1df;
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.lock-input:focus {
+  border-color: #ff5c8a;
+  box-shadow: 0 0 15px rgba(255, 92, 138, 0.35);
+}
+
+/* button */
+.lock-btn {
+  margin-top: 25px;
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: none;
+  background: #ff5c8a;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lock-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(255, 92, 138, 0.4);
+}
+
+/* hint */
+.lock-hint {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* animations */
+@keyframes lockFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes borderGlow {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}

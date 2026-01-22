@@ -35,21 +35,41 @@ function App() {
   };
 
   if (!unlocked) {
-    return (
-      <div className="lock-screen">
-        <h2>🔒 Private Space</h2>
-        <p>Only for Tannu 💖</p>
+  return (
+    <div className="lock-screen">
+      <div className="lock-card">
+        <div className="lock-heart">💖</div>
+
+        <h2 className="lock-title">Private Space</h2>
+        <p className="lock-subtitle">
+          Only for Tannu 🤍
+        </p>
+
         <input
-          placeholder="Enter secret name"
+          className="lock-input"
+          placeholder="Type our secret…"
           value={secret}
           onChange={(e) => setSecret(e.target.value)}
         />
-        <button onClick={() => secret.toLowerCase() === 'phle boobies dikhao' && setUnlocked(true)}>
-          Unlock 💖
+
+        <button
+          className="lock-btn"
+          onClick={() =>
+            secret.trim().toLowerCase() === 'phle boobies dikhao' &&
+            setUnlocked(true)
+          }
+        >
+          Unlock 💫
         </button>
+
+        <p className="lock-hint">
+          Hint: Something I always ask for 😉
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
 
   return (
     <div className="app-container">
