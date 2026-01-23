@@ -13,7 +13,8 @@ function App() {
   const [secondSecret, setSecondSecret] = useState('');
   const [openLetter, setOpenLetter] = useState(null);
   const [showVideo, setShowVideo] = useState(false);
-
+  const [responseType, setResponseType] = useState(null); // 'yes' or 'no'
+  
   useEffect(() => {
     const startDate = new Date('2025-09-20');
     const today = new Date();
