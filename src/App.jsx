@@ -200,38 +200,53 @@ function App() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="content">
-          <div className="love-game glass">
-            <h2 className="section-title">Important Question 👀</h2>
-            {!celebrate ? (
-              <div className="game-box">
-                <p>Do you love me?</p>
-                <div className="love-buttons">
-                  <button className="yes-btn highlight" onClick={popConfetti}>
-                    Yes, I love you bebu 💖
-                  </button>
-                  <button
-                    className="no-btn"
-                    onMouseEnter={(e) => {
-                      const btn = e.target;
-                      btn.style.left = Math.random() * 80 + '%';
-                      btn.style.top = Math.random() * 80 + '%';
-                    }}
-                  >
-                    No 😒
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="celebrate-box">
-                <h3>YAYYYYY 💕</h3>
-                <p>You were always mine and will be 🤍</p>
-              </div>
-            )}
+      <section className="section love-game-section">
+  <div className="content">
+    <div className="love-game glass">
+      <h2 className="section-title">Important Question 👀</h2>
+
+      {!celebrate ? (
+        <div className="game-box">
+          <p className="question-text">Do you love me?</p>
+          
+          {/* Reaction Doodle Area */}
+          <div className="doodle-container">
+            {responseType === 'no' && <div className="doodle angry-doodle">😡👊</div>}
           </div>
+
+          <div className="love-buttons">
+            <button 
+              className="yes-btn highlight" 
+              onClick={() => {
+                setResponseType('yes');
+                popConfetti();
+              }}
+            >
+              Yes, I love you bebu 💖
+            </button>
+
+            <button 
+              className="no-btn normal" 
+              onClick={() => setResponseType('no')}
+            >
+              No 😒
+            </button>
+          </div>
+
+          {responseType === 'no' && (
+            <p className="angry-text fade-in">Marne se darr ni lagta kya? 🔪</p>
+          )}
         </div>
-      </section>
+      ) : (
+        <div className="celebrate-box fade-in">
+          <div className="doodle love-doodle">🥰👩‍❤️‍👨✨</div>
+          <h3>YAYYYYY 💕</h3>
+          <p>You were always mine and will be 🤍</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
 
       <section className="section">
         <div className="content">

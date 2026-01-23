@@ -310,3 +310,79 @@ body {
   font-size: 1.3rem;
   margin-top: 30px;
 }
+/* --- Love Game Fixes --- */
+.love-game {
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.love-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.no-btn.normal {
+  position: relative; /* Removes the fleeing logic */
+  background: #eee;
+  color: #666;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.no-btn.normal:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* Doodles */
+.doodle-container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doodle {
+  font-size: 5rem;
+  animation: bounce 0.8s infinite alternate;
+}
+
+.love-doodle {
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
+
+.angry-text {
+  color: #ff4d4d;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes bounce {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-20px) scale(1.1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
