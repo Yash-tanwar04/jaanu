@@ -34,56 +34,45 @@ function App() {
     setCelebrate(true);
   };
 
+  /* LOCK SCREEN */
   if (!unlocked) {
-  return (
-    <div className="lock-screen">
-      <div className="lock-card">
-        <div className="lock-heart">💖</div>
+    return (
+      <div className="lock-screen">
+        <div className="lock-card">
+          <div className="lock-heart">💖</div>
 
-        <h2 className="lock-title">Private Space</h2>
-        <p className="lock-subtitle">
-          Only for Tannu 🤍
-        </p>
+          <h2 className="lock-title">Private Space</h2>
+          <p className="lock-subtitle">Only for Tannu 🤍</p>
 
-        <input
-          className="lock-input"
-          placeholder="Type our secret…"
-          value={secret}
-          onChange={(e) => setSecret(e.target.value)}
-        />
+          <input
+            className="lock-input"
+            placeholder="Type our secret…"
+            value={secret}
+            onChange={(e) => setSecret(e.target.value)}
+          />
 
-        <button
-          className="lock-btn"
-          onClick={() =>
-            secret.trim().toLowerCase() === 'phle boobies dikhao' &&
-            setUnlocked(true)
-          }
-        >
-          Unlock 💫
-        </button>
+          <button
+            className="lock-btn"
+            onClick={() =>
+              secret.trim().toLowerCase() === 'phle boobies dikhao' &&
+              setUnlocked(true)
+            }
+          >
+            Unlock 💫
+          </button>
 
-        <p className="lock-hint">
-          Hint: Something I always ask for 😉
-        </p>
+          <p className="lock-hint">
+            Hint: Something I always ask for 😉
+          </p>
+        </div>
       </div>
-    </div>
-  );
-}
-
+    );
+  }
 
   return (
     <div className="app-container">
 
       <audio ref={audioRef} src="/music/love.mp3" loop />
-      <div className="top-controls">
-        <button onClick={() =>
-          audioRef.current.paused
-            ? audioRef.current.play()
-            : audioRef.current.pause()
-        }>
-          🎵
-        </button>
-      </div>
 
       {/* HERO */}
       <header className="hero">
@@ -96,108 +85,113 @@ function App() {
           It’s just me choosing you again.
         </p>
         <p className="description">
-          Meri KuchhuPuchhu and Wifey </p>  
-          <p>Kattar Man hater
+          Meri KuchhuPuchhu and Wifey
+        </p>
+        <p className="description">
+          Kattar Man hater
         </p>
       </header>
 
       {/* WHY YOU'RE DIFFERENT */}
-      <section className="section fancy-section">
-        <h2 className="section-title">Why You're Different 💕</h2>
-        <div className="card-grid">
-          <div className="card">You don't try to be cute. Tu bas hai meri cutu.</div>
-          <div className="card">You think of me so selflessly even if you aren't right.</div>
-          <div className="card">You made love feel easy, not scary.</div>
+      <section className="section">
+        <div className="content">
+          <h2 className="section-title">Why You're Different 💕</h2>
+          <div className="card-grid">
+            <div className="card">You don't try to be cute. Tu bas hai meri cutu.</div>
+            <div className="card">You think of me so selflessly even if you aren't right.</div>
+            <div className="card">You made love feel easy, not scary.</div>
+          </div>
         </div>
       </section>
 
       {/* LOVE GAME */}
       <section className="section bg-pink">
-  <div className="content">
-    <h2 className="section-title">Important Question 👀</h2>
+        <div className="content">
+          <h2 className="section-title">Important Question 👀</h2>
 
-    {!celebrate ? (
-      <div className="love-game">
-        <p>Do you love me?</p>
+          {!celebrate ? (
+            <div className="love-game">
+              <p>Do you love me?</p>
 
-        <div className="love-buttons">
-          {/* YES BUTTON */}
-          <button className="yes-btn" onClick={popConfetti}>
-            Yes, I love you bebu 💖
-          </button>
+              <div className="love-buttons">
+                <button className="yes-btn" onClick={popConfetti}>
+                  Yes, I love you bebu 💖
+                </button>
 
-          {/* NO BUTTON (RUNS AWAY) */}
-          <button
-            className="no-btn"
-            onMouseEnter={(e) => {
-              const btn = e.target;
-              const parent = btn.parentElement;
-
-              const maxX = parent.clientWidth - btn.offsetWidth;
-              const maxY = parent.clientHeight - btn.offsetHeight;
-
-              const randomX = Math.random() * maxX;
-              const randomY = Math.random() * maxY;
-
-              btn.style.left = `${randomX}px`;
-              btn.style.top = `${randomY}px`;
-            }}
-          >
-            No 😒
-          </button>
+                <button
+                  className="no-btn"
+                  onMouseEnter={(e) => {
+                    const btn = e.target;
+                    const parent = btn.parentElement;
+                    const maxX = parent.clientWidth - btn.offsetWidth;
+                    const maxY = parent.clientHeight - btn.offsetHeight;
+                    btn.style.left = Math.random() * maxX + 'px';
+                    btn.style.top = Math.random() * maxY + 'px';
+                  }}
+                >
+                  No 😒
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="celebrate-box">
+              <h3>YAYYYYY 💕</h3>
+              <p>You were always mine and will be 🤍</p>
+            </div>
+          )}
         </div>
-      </div>
-    ) : (
-      <div className="celebrate-box">
-        <h3>YAYYYYY 💕</h3>
-        <p>You were always mine and will be 🤍</p>
-      </div>
-    )}
-  </div>
-</section>
-
+      </section>
 
       {/* WHEN NOT TOGETHER */}
-      <section className="section fancy-section">
-        <h2 className="section-title">When We’re Not Together 🕊️</h2>
-        <div className="card-grid">
-          <div className="card">Tu mere dimag me rehti hai 24/7.</div>
-          <div className="card">SaxSux thoughts never stop 😭</div>
-          <div className="card">I wait just to talk to you and spill the tea.</div>
+      <section className="section">
+        <div className="content">
+          <h2 className="section-title">When We’re Not Together 🕊️</h2>
+          <div className="card-grid">
+            <div className="card">Tu mere dimag me rehti hai 24/7.</div>
+            <div className="card">SaxSux thoughts never stop 😭</div>
+            <div className="card">I wait just to talk to you and spill the tea.</div>
+          </div>
         </div>
       </section>
 
       {/* TIMELINE */}
-      <section className="timeline fancy-section">
-        <div className="stat-number">{daysTogether}</div>
-        <p>Days of choosing you</p>
+      <section className="timeline">
+        <div className="content">
+          <div className="stat-number">{daysTogether}</div>
+          <p>Days of choosing you</p>
+        </div>
       </section>
 
       {/* PHOTOS */}
-      <section className="section bg-pink fancy-section">
-        <h2 className="section-title">Us 📸</h2>
-        <div className="photo-grid">
-          <img src="/p1.jpeg" />
-          <img src="/p2.jpeg" />
-          <img src="/p3.jpeg" />
+      <section className="section bg-pink">
+        <div className="content">
+          <h2 className="section-title">Us 📸</h2>
+          <div className="photo-grid">
+            <img src="/p1.jpeg" alt="us" />
+            <img src="/p2.jpeg" alt="us" />
+            <img src="/p3.jpeg" alt="us" />
+          </div>
         </div>
       </section>
 
       {/* PROMISES */}
-      <section className="section fancy-section">
-        <h2 className="section-title">Small Promises 💖</h2>
-        <div className="card-grid">
-          <div className="card">I’ll choose you even on hard days.</div>
-          <div className="card">I won’t leave when things get messy.</div>
-          <div className="card">I'll buy you Flowers, dark chocolate & cold coffee — always.</div>
+      <section className="section">
+        <div className="content">
+          <h2 className="section-title">Small Promises 💖</h2>
+          <div className="card-grid">
+            <div className="card">I’ll choose you even on hard days.</div>
+            <div className="card">I won’t leave when things get messy.</div>
+            <div className="card">I'll buy you Flowers, dark chocolate & cold coffee — always.</div>
+          </div>
         </div>
       </section>
 
       {/* FINAL LETTER */}
       <section className="final-letter-section">
-        <div className="final-letter-card">
-          <h2>For You, Always 🤍</h2>
-          <p className="final-letter-text typewriter">
+        <div className="content">
+          <div className="final-letter-card">
+            <h2>For You, Always 🤍</h2>
+            <p className="final-letter-text">
 {`Hello baby,
 
 You are the prettiest and sweetest person I've ever met. You bring the best out of me. I was never this sweet boy, and I hated doing all these things — they felt cringe. But now I realize why they say wait until your turn, because a beautiful girl was meant to love me. And if these things make her happy, I’ll happily be the cringiest person alive on this planet, because all I care about is you.
@@ -210,22 +204,21 @@ Bebu, I know I fail to be there when you need me, and that’s the only regret a
 
 I don’t want to live without you because I don’t know how to live without you, Tannu. You are the first person I’ve ever loved, and now that I love someone, I’ll love you madly and keep loving you till the end, bebu.
 
-I want to give you all the love and respect you deserved and never got. I’ll fulfill all your cravings for love and respect.
+I want to give you all the love and respect you deserved and never got. I’ll fulfill all your cravings of love and respect.
 
-I don’t even know why you get hurt when I jokingly say you don’t look good. Like, girllll, come onnnn, babeeeeieee — tu sabse pyaari, sexyyy aur bahut hi hottt haiii. Teri aankhein… ughhhhhhhhhhh, I can legit look straight into your eyes and just get lost. They are so amazing. Phir teri smile — I legit melt when you smile, especially that smile when you try to control your laugh and then khulke hasti hai. I love you. And bebu, aapki waist… faaaaaakkkkk, nooooo, yaad mat dila, mujhe hidden folder kholna pad jaayega, bebu. Tu sabse pyaari aur sundar hai, meri jaan.
+I don’t even know why you get hurt when I jokingly say you don't look good. Like, girllll, come onnnn, babeeeeieee — tu sabse pyaari, sexyyy orrr bhtt hi hottt haiii, teri aakhein ughhhhhhhhhhhhhhh i can legit see dead into your eyes and just get lost they are so amazing fir teri smile i legit melt when you smile like teri vo vali smile when you try to control your laugh and fir tu khulke hasti h i lovee you and bebu aapki waist faaaaaakkkkkkkkk nooooo yaad mt dila merko mujhe hidden folder kholna pad jaega bebu. tu hai sabse pyaari or sundar meri jaan.
 
-I want to meet you so badly, I can’t even tell you, bebu. Feel your touch, hug you, kiss you — ughhh, can’t wait. I still remember the last time we met, when you got a little low in the auto and rested your head on my shoulder. I kept kissing you. Our foreheads were touching, and then I slipped down to your lips and kissed your dry lips. Ahhhh, that was my first kiss actually, and it was so special that I still remember that moment second by second.
+I want to meet you so badly i can't tell u bebu feel that touch of yours hug you kiss you ughhh can't wait bebu i still remember when last time we met tu thodi low ho gyi thi auto me and tune apna sarr mere shoulder p rakh liya tha then i kept kissing you mera tera forhead touch hora tha and then i slipped down to your lips and kissed your dry lips ahhhh that was my first kiss actually and it was so special that i still remember that moment second by second.
 
-Never feel that I’ll leave you alone. No, bebu, aisa kabhi nahi hoga. Yes, you can overthink — kitna bhi, jitni bhi baar — I’ll reassure you every single time, standing by your side. Kyunki I know how much you’ve gone through in the past, how you feel when you’re stressed, and I’ll never leave you to suffer, bebu.
+Never feel that i'll leave you alone NO bebu aisa kabhi ni hoga yes you can overthink kitna bhi kitni bhi baar i'll reassure you everytime standing by your side, kuki ik how much you have gone through in past and how you feel when in stress and will never leave you to suffer bebu.
 
-I know I’m very far from you, but I never want you to feel alone. That’s why I came up with this idea — I’ll keep changing the content, so whenever you feel alone, miss me, and I’m sleeping, you can just open this and feel happy.
+I know I am very far from you but i never wanna feel you alone so i came up with this idea i'll keep changing the content so when ever you feel alone and when you miss me and i'm sleeping you can just open this and feel happy.
 
-Forever yours, bebu.
-And you’ll always be mine, meri jaan, mera KuchhuPuchhu.
+forever yours bebu and you'll always be mine meri jaan mera kuchhuPuchhu.
 
-Aapka hone wala pati,
-Yash.`}
-          </p>
+aapka hone vala pati Yash.`}
+            </p>
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,3 @@
-/* ===== RESET ===== */
 * {
   box-sizing: border-box;
 }
@@ -7,25 +6,79 @@ body {
   margin: 0;
   background: #fff5f8;
   font-family: 'Poppins', sans-serif;
-  color: #222;
 }
 
-/* ===== GLOBAL WRAPPER ===== */
 .app-container {
   width: 100%;
   overflow-x: hidden;
 }
 
-/* ===== CONTENT CONTAINER (KEY FIX) ===== */
 .content {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 24px;
 }
 
-/* ===== HERO ===== */
+/* LOCK SCREEN */
+.lock-screen {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe6ef, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lock-card {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(255,92,138,0.25);
+}
+
+.lock-heart {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite;
+}
+
+.lock-title {
+  font-size: 2rem;
+  color: #ff5c8a;
+}
+
+.lock-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.lock-input {
+  width: 260px;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: 2px solid #ffd1df;
+  outline: none;
+}
+
+.lock-btn {
+  margin-top: 20px;
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: none;
+  background: #ff5c8a;
+  color: white;
+  cursor: pointer;
+}
+
+.lock-hint {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* HERO */
 .hero {
-  padding: 80px 0 60px;
+  padding: 80px 0;
   text-align: center;
 }
 
@@ -35,19 +88,16 @@ body {
   border-radius: 40px;
   border: 3px solid #ff5c8a;
   margin-bottom: 30px;
-  animation: glowPulse 3s infinite ease-in-out;
 }
 
 .title-animated {
   font-size: 3.5rem;
   color: #ff5c8a;
-  letter-spacing: 3px;
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .description {
@@ -55,7 +105,7 @@ body {
   color: #666;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .section {
   padding: 80px 0;
 }
@@ -67,149 +117,25 @@ body {
 .section-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
-/* ===== CARDS ===== */
+/* CARDS */
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.card {
-  background: #fff;
-  padding: 28px;
-  border-radius: 22px;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(255, 92, 138, 0.22);
-}
-
-/* ===== LOVE GAME ===== */
-.love-game {
-  text-align: center;
-}
-
-.love-game p {
-  margin-bottom: 20px;
-}
-
-.love-game button {
-  margin: 10px;
-  padding: 14px 28px;
-  border-radius: 30px;
-  border: none;
-  background: #ff5c8a;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.love-game button:hover {
-  transform: scale(1.05);
-}
-
-.celebrate-box {
-  background: white;
-  padding: 40px;
-  border-radius: 26px;
-}
-
-/* ===== TIMELINE ===== */
-.timeline {
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 3.2rem;
-  color: #ff5c8a;
-}
-
-/* ===== PHOTOS ===== */
-.photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 26px;
 }
 
-.photo-grid img {
-  width: 100%;
-  border-radius: 22px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.photo-grid img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
-}
-
-/* ===== FINAL LETTER ===== */
-.final-letter-section {
-  background: linear-gradient(135deg, #ffe6ef, #fff);
-}
-
-.final-letter-card {
+.card {
   background: white;
-  padding: 60px;
-  border-radius: 34px;
-  box-shadow: 0 30px 60px rgba(255, 92, 138, 0.25);
-}
-
-.final-letter-text {
-  white-space: pre-line;
-  line-height: 1.9;
-  font-size: 1.05rem;
-}
-
-/* ===== FOOTER ===== */
-.footer {
+  padding: 28px;
+  border-radius: 22px;
   text-align: center;
-  padding: 40px 20px;
-  color: #666;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* ===== HEARTS ===== */
-.heart {
-  position: fixed;
-  bottom: -10px;
-  animation: floatHearts 6s linear infinite;
-}
-
-@keyframes floatHearts {
-  to {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
-
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px #ff5c8a; }
-  50% { box-shadow: 0 0 24px #ff5c8a; }
-  100% { box-shadow: 0 0 10px #ff5c8a; }
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 900px) {
-  .card-grid,
-  .photo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .title-animated {
-    font-size: 2.4rem;
-  }
-
-  .final-letter-card {
-    padding: 36px;
-  }
-}
-/* ===== LOVE GAME RUNAWAY BUTTON ===== */
-
+/* LOVE GAME */
 .love-game {
   text-align: center;
 }
@@ -226,140 +152,90 @@ body {
   border: none;
   background: #ff5c8a;
   color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.2s ease;
-}
-
-.yes-btn:hover {
-  transform: scale(1.05);
 }
 
 .no-btn {
   position: absolute;
-  top: 60px;
-  left: 55%;
   padding: 12px 26px;
   border-radius: 30px;
   border: none;
   background: #ddd;
-  color: #555;
-  cursor: pointer;
-  transition: top 0.25s ease, left 0.25s ease;
-}
-/* ===============================
-   LOCK SCREEN (SECRET CODE PAGE)
-================================ */
-
-.lock-screen {
-  height: 100vh;
-  background: linear-gradient(135deg, #ffe6ef, #fff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
-.lock-card {
-  background: white;
-  padding: 50px 40px;
-  border-radius: 30px;
+/* TIMELINE */
+.timeline {
+  padding: 60px 0;
   text-align: center;
-  position: relative;
-  box-shadow: 0 30px 60px rgba(255, 92, 138, 0.25);
-  animation: lockFadeIn 1s ease;
 }
 
-/* glowing border */
-.lock-card::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 33px;
-  background: linear-gradient(120deg, #ff5c8a, #ff9bb8);
-  z-index: -1;
-  filter: blur(12px);
-  animation: borderGlow 3s infinite ease-in-out;
-}
-
-/* heart icon */
-.lock-heart {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  animation: heartPulse 2s infinite;
-}
-
-.lock-title {
-  font-size: 2rem;
+.stat-number {
+  font-size: 3.2rem;
   color: #ff5c8a;
-  margin-bottom: 8px;
 }
 
-.lock-subtitle {
+/* PHOTOS */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 22px;
+}
+
+/* FINAL LETTER */
+.final-letter-section {
+  background: linear-gradient(135deg, #ffe6ef, #fff);
+}
+
+.final-letter-card {
+  background: white;
+  padding: 60px;
+  border-radius: 34px;
+  box-shadow: 0 30px 60px rgba(255,92,138,0.25);
+}
+
+.final-letter-text {
+  white-space: pre-line;
+  line-height: 1.9;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
   color: #666;
-  margin-bottom: 30px;
 }
 
-/* input */
-.lock-input {
-  width: 260px;
-  padding: 14px 18px;
-  border-radius: 30px;
-  border: 2px solid #ffd1df;
-  outline: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: float 6s linear infinite;
 }
 
-.lock-input:focus {
-  border-color: #ff5c8a;
-  box-shadow: 0 0 15px rgba(255, 92, 138, 0.35);
-}
-
-/* button */
-.lock-btn {
-  margin-top: 25px;
-  padding: 14px 36px;
-  border-radius: 30px;
-  border: none;
-  background: #ff5c8a;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.lock-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(255, 92, 138, 0.4);
-}
-
-/* hint */
-.lock-hint {
-  margin-top: 20px;
-  font-size: 0.85rem;
-  color: #888;
-}
-
-/* animations */
-@keyframes lockFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
+@keyframes float {
   to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(-100vh);
+    opacity: 0;
   }
 }
 
-@keyframes borderGlow {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
-@keyframes heartPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+/* MOBILE */
+@media (max-width: 900px) {
+  .card-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title-animated {
+    font-size: 2.4rem;
+  }
 }
