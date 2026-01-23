@@ -9,7 +9,6 @@ body {
 }
 
 .app-container {
-  width: 100%;
   overflow-x: hidden;
 }
 
@@ -19,7 +18,7 @@ body {
   padding: 0 24px;
 }
 
-/* LOCK SCREEN */
+/* ================= LOCK SCREEN ================= */
 .lock-screen {
   height: 100vh;
   background: linear-gradient(135deg, #ffe6ef, #fff);
@@ -39,6 +38,7 @@ body {
 .lock-heart {
   font-size: 3rem;
   margin-bottom: 15px;
+  cursor: pointer;
   animation: pulse 2s infinite;
 }
 
@@ -57,7 +57,6 @@ body {
   padding: 14px 18px;
   border-radius: 30px;
   border: 2px solid #ffd1df;
-  outline: none;
 }
 
 .lock-btn {
@@ -76,7 +75,13 @@ body {
   color: #888;
 }
 
-/* HERO */
+.secret-reveal {
+  margin-top: 10px;
+  color: #ff5c8a;
+  animation: fadeIn 0.6s ease;
+}
+
+/* ================= HERO ================= */
 .hero {
   padding: 80px 0;
   text-align: center;
@@ -96,16 +101,14 @@ body {
 }
 
 .subtitle {
-  font-size: 1.1rem;
   line-height: 1.6;
 }
 
 .description {
-  font-size: 0.95rem;
   color: #666;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 .section {
   padding: 80px 0;
 }
@@ -120,7 +123,7 @@ body {
   margin-bottom: 40px;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -133,9 +136,15 @@ body {
   border-radius: 22px;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* LOVE GAME */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(255,92,138,0.25);
+}
+
+/* ================= LOVE GAME ================= */
 .love-game {
   text-align: center;
 }
@@ -162,7 +171,29 @@ body {
   background: #ddd;
 }
 
-/* TIMELINE */
+/* ================= CHAT ================= */
+.chat-box {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-bubble {
+  background: white;
+  padding: 14px 18px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  opacity: 0;
+  animation: chatFade 0.8s ease forwards;
+}
+
+.delay1 { animation-delay: 1s; }
+.delay2 { animation-delay: 2s; }
+.delay3 { animation-delay: 3s; }
+
+/* ================= TIMELINE ================= */
 .timeline {
   padding: 60px 0;
   text-align: center;
@@ -173,7 +204,7 @@ body {
   color: #ff5c8a;
 }
 
-/* PHOTOS */
+/* ================= PHOTOS ================= */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -183,33 +214,21 @@ body {
 .photo-grid img {
   width: 100%;
   border-radius: 22px;
+  transition: transform 0.3s ease;
 }
 
-/* FINAL LETTER */
-.final-letter-section {
-  background: linear-gradient(135deg, #ffe6ef, #fff);
+.photo-grid img:hover {
+  transform: scale(1.05);
 }
 
-.final-letter-card {
-  background: white;
-  padding: 60px;
-  border-radius: 34px;
-  box-shadow: 0 30px 60px rgba(255,92,138,0.25);
-}
-
-.final-letter-text {
-  white-space: pre-line;
-  line-height: 1.9;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px;
   color: #666;
 }
 
-/* HEARTS */
+/* ================= FLOATING HEARTS ================= */
 .heart {
   position: fixed;
   bottom: -10px;
@@ -228,7 +247,17 @@ body {
   50% { transform: scale(1.15); }
 }
 
-/* MOBILE */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes chatFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 900px) {
   .card-grid,
   .photo-grid {
