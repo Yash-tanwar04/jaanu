@@ -110,7 +110,7 @@ function App() {
 
           <button
             className="lock-btn highlight"
-            onClick={() => secret.trim().toLowerCase() === 'phle boobies dikhao' && setUnlocked(true)}
+            onClick={() => secret.trim().toLowerCase() === 'kissie' && setUnlocked(true)}
           >
             Unlock My Heart 💫
           </button>
