@@ -268,3 +268,86 @@ body {
     font-size: 2.4rem;
   }
 }
+/* ===== SECOND SECRET ===== */
+.second-lock {
+  text-align: center;
+}
+
+.unlocked-text {
+  margin-top: 20px;
+  color: #ff5c8a;
+  font-size: 1.1rem;
+}
+
+/* ===== LETTERS PAGE ===== */
+.letters-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe6ef, #fff);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.letters-title {
+  font-size: 2.6rem;
+  color: #ff5c8a;
+  margin-bottom: 50px;
+}
+
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.letter-card {
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.letter-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255,92,138,0.25);
+}
+
+/* ===== LETTER MODAL ===== */
+.letter-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.letter-paper {
+  background: white;
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 600px;
+  width: 90%;
+  animation: letterOpen 0.6s ease;
+}
+
+.letter-paper p {
+  white-space: pre-line;
+  line-height: 1.8;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes letterOpen {
+  from {
+    transform: scale(0.8) rotateX(10deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotateX(0);
+    opacity: 1;
+  }
+}

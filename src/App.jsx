@@ -9,6 +9,10 @@ function App() {
   const [daysTogether, setDaysTogether] = useState(0);
   const [heartCount, setHeartCount] = useState(0);
   const audioRef = useRef(null);
+  const [secondUnlocked, setSecondUnlocked] = useState(false);
+  const [secondSecret, setSecondSecret] = useState('');
+  const [openLetter, setOpenLetter] = useState(null);
+
 
   useEffect(() => {
     const startDate = new Date('2025-09-20');
@@ -80,6 +84,67 @@ function App() {
       </div>
     );
   }
+  if (secondUnlocked) {
+  return (
+    <div className="letters-page">
+      <h1 className="letters-title">Letters Only For You 🤍</h1>
+
+      <div className="letters-grid">
+        {[
+          {
+            id: 1,
+            title: 'Read this when you miss me',
+            preview: 'Close your eyes for a second…',
+            full: `Close your eyes for a second.
+I want you to imagine me sitting next to you,
+holding your hand,
+telling you that everything is okay
+and I’m not going anywhere.`
+          },
+          {
+            id: 2,
+            title: 'Read this when you feel insecure',
+            preview: 'If you ever doubt yourself…',
+            full: `If you ever doubt yourself,
+remember this:
+you are loved deeply,
+chosen intentionally,
+and wanted endlessly —
+by me.`
+          },
+          {
+            id: 3,
+            title: 'Read this at 3 AM',
+            preview: 'If it’s late and your mind is loud…',
+            full: `If it’s late and your thoughts won’t stop,
+know that somewhere,
+I’m thinking of you too,
+even if I’m asleep.`
+          }
+        ].map((letter) => (
+          <div
+            key={letter.id}
+            className="letter-card"
+            onClick={() => setOpenLetter(letter)}
+          >
+            <h3>{letter.title}</h3>
+            <p>{letter.preview}</p>
+          </div>
+        ))}
+      </div>
+
+      {openLetter && (
+        <div className="letter-modal" onClick={() => setOpenLetter(null)}>
+          <div className="letter-paper" onClick={(e) => e.stopPropagation()}>
+            <h2>{openLetter.title}</h2>
+            <p>{openLetter.full}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 
   /* ================= MAIN SITE ================= */
   return (
@@ -209,6 +274,40 @@ function App() {
           </div>
         </div>
       </section>
+      {/* SECOND SECRET */}
+<section className="section bg-pink">
+  <div className="content">
+    <h2 className="section-title">One More Secret 👀</h2>
+
+    {!secondUnlocked ? (
+      <div className="second-lock">
+        <p>This one is even more private.</p>
+
+        <input
+          className="lock-input"
+          placeholder="Enter the secret…"
+          value={secondSecret}
+          onChange={(e) => setSecondSecret(e.target.value)}
+        />
+
+        <button
+          className="lock-btn"
+          onClick={() =>
+            secondSecret.trim().toLowerCase() === 'meri future biwi' &&
+            setSecondUnlocked(true)
+          }
+        >
+          Unlock 💌
+        </button>
+      </div>
+    ) : (
+      <p className="unlocked-text">
+        Okay… now come here 🤍
+      </p>
+    )}
+  </div>
+</section>
+
 
       <footer className="footer">
         Made only for Tannu, by Yash 💖
