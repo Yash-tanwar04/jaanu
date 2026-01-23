@@ -316,38 +316,43 @@ body {
 }
 
 /* ===== LETTER MODAL ===== */
+/* ===== LETTER MODAL (FIXED & SCROLLABLE) ===== */
 .letter-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.4s ease;
+  padding: 20px;
+  z-index: 999;
 }
 
+/* Letter container */
 .letter-paper {
   background: white;
   padding: 50px;
   border-radius: 30px;
-  max-width: 600px;
-  width: 90%;
+  max-width: 650px;
+  width: 100%;
+  max-height: 85vh;          /* 🔑 LIMIT HEIGHT */
+  overflow-y: auto;          /* 🔑 ENABLE SCROLL */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
   animation: letterOpen 0.6s ease;
 }
 
-.letter-paper p {
-  white-space: pre-line;
-  line-height: 1.8;
+/* Scrollbar (optional but pretty) */
+.letter-paper::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes letterOpen {
-  from {
-    transform: scale(0.8) rotateX(10deg);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1) rotateX(0);
-    opacity: 1;
-  }
+.letter-paper::-webkit-scrollbar-thumb {
+  background: #ff5c8a;
+  border-radius: 10px;
+}
+
+/* Text formatting */
+.letter-paper p {
+  white-space: pre-line;     /* respects Enter */
+  line-height: 1.8;
 }
