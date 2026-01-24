@@ -1,4 +1,4 @@
-/* Taysh Premium Styling 
+/* Taysh Premium Final Stylesheet 
   Theme: Romantic Ethereal Glassmorphism 
 */
 
@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-/* --- DYNAMIC BACKGROUND --- */
+/* --- DYNAMIC ANIMATED BACKGROUND --- */
 .bg-blobs {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -37,6 +37,12 @@ body {
     radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.4) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(255, 105, 180, 0.2) 0%, transparent 40%);
   filter: blur(80px);
+  animation: bgPulse 15s infinite alternate;
+}
+
+@keyframes bgPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
 /* --- GLASSMORPHISM UTILITY --- */
@@ -49,13 +55,14 @@ body {
   border-radius: 30px;
 }
 
-/* --- LOCK SCREEN & VIDEO MODAL --- */
+/* --- FIRST SECRET PAGE (LOCK SCREEN) --- */
 .lock-screen {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background: linear-gradient(135deg, #fff5f8 0%, #ffeef2 100%);
 }
 
 .lock-card {
@@ -63,21 +70,98 @@ body {
   text-align: center;
   max-width: 420px;
   width: 100%;
+  border: 2px solid white;
+  animation: lockEntrance 1s ease-out;
+}
+
+.lock-heart-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
 }
 
 .lock-heart {
   font-size: 5rem;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
-.lock-heart:hover { transform: scale(1.2); }
+.lock-heart.pop { transform: scale(1.2); }
 
+.tap-count {
+  position: absolute;
+  top: -5px; right: -15px;
+  background: var(--primary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px var(--primary-glow);
+}
+
+.lock-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--primary);
+  margin: 10px 0;
+}
+
+.lock-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.lock-input {
+  width: 100%;
+  padding: 18px 25px;
+  border-radius: 50px;
+  border: 2px solid #ffd1df;
+  margin-top: 10px;
+  outline: none;
+  text-align: center;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.lock-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.lock-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 50px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px var(--primary-glow);
+  transition: 0.3s;
+}
+
+.lock-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.lock-hint {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* --- VIDEO MODAL --- */
 .video-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(15px);
   z-index: 3000;
   display: flex;
@@ -86,31 +170,50 @@ body {
   padding: 20px;
 }
 
+.video-container {
+  max-width: 850px;
+  width: 100%;
+  padding: 15px;
+  position: relative;
+  animation: modalPop 0.5s ease-out;
+}
+
 .secret-video { 
   width: 100%; 
-  border-radius: 15px; 
+  border-radius: 20px; 
   box-shadow: 0 0 50px var(--primary-glow);
-  max-height: 70vh;
+  max-height: 75vh;
 }
 
 .close-video {
   position: absolute;
-  top: -10px; right: -10px;
+  top: -15px; right: -15px;
   background: var(--primary);
   color: white;
   border: none;
-  width: 40px; height: 40px;
+  width: 45px; height: 45px;
   border-radius: 50%;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 3001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- HERO SECTION --- */
-.hero { padding: 100px 20px; text-align: center; }
+.hero { padding: 120px 20px; text-align: center; }
+
+.title-wrapper {
+  display: inline-block;
+  padding: 25px 80px;
+  border-radius: 100px;
+  margin-bottom: 40px;
+}
 
 .title-animated {
   font-family: 'Dancing Script', cursive;
-  font-size: 5rem;
+  font-size: 6rem;
   margin: 0;
   background: linear-gradient(45deg, #ff5c8a, #ff99ac);
   background-clip: text;
@@ -118,38 +221,41 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.subtitle { font-size: 1.2rem; line-height: 1.8; margin-top: 20px; }
+.subtitle { font-size: 1.3rem; line-height: 2; margin-top: 25px; color: #666; }
 .subtitle span { color: var(--primary); font-weight: 600; }
+.subtitle strong { font-size: 1.6rem; display: block; margin-top: 10px; color: #333; }
 
 /* --- HEART COLLAGE & SHATTER --- */
 .heart-collage {
   position: relative;
-  height: 550px;
-  max-width: 600px;
+  height: 600px;
+  max-width: 650px;
   margin: 60px auto;
 }
 
 .photo-piece {
   position: absolute;
-  width: 115px;
-  height: 115px;
-  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
   overflow: hidden;
   border: 4px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: grab;
+  z-index: 1;
 }
 
 .photo-piece img { width: 100%; height: 100%; object-fit: cover; }
 
 .photo-piece:hover {
-  transform: scale(1.7);
+  transform: scale(1.75);
   z-index: 100;
-  box-shadow: 0 0 40px var(--primary-glow);
+  box-shadow: 0 15px 45px var(--primary-glow);
+  filter: brightness(1.05);
 }
 
-/* Position Mapping */
+/* Positions for the 13-image heart shape */
 .pos-1  { top: 5%;   left: 20%; }
 .pos-2  { top: 5%;   left: 55%; }
 .pos-3  { top: 15%;  left: 5%;  }
@@ -167,92 +273,119 @@ body {
 @keyframes shatterEffect {
   0% { transform: scale(1.6); opacity: 1; }
   100% { 
-    transform: scale(0.2) translateY(400px) rotate(45deg); 
+    transform: scale(0.1) translateY(450px) rotate(90deg); 
     opacity: 0; 
-    filter: blur(15px); 
+    filter: blur(20px); 
   }
 }
 
 .shattered { animation: shatterEffect 0.8s ease-out forwards; pointer-events: none; }
 
 /* --- LOVE GAME --- */
-.love-game { padding: 60px 20px; text-align: center; }
+.love-game { padding: 80px 40px; text-align: center; }
+
+.doodle-container { height: 140px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; }
 
 .doodle {
   font-size: 6rem;
-  margin-bottom: 20px;
   animation: bounce 0.6s infinite alternate;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
 }
 
-.love-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+.love-buttons { display: flex; gap: 25px; justify-content: center; margin-top: 35px; }
 
 .yes-btn {
   background: var(--primary);
   color: white;
-  padding: 15px 40px;
+  padding: 18px 45px;
   border-radius: 50px;
   border: none;
   font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
+  box-shadow: 0 10px 25px var(--primary-glow);
 }
 
 .no-btn.normal {
   background: #f0f0f0;
   color: #888;
-  padding: 15px 40px;
+  padding: 18px 45px;
   border-radius: 50px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .angry-text {
   color: #ff4d4d;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: 1.2rem;
   animation: shake 0.4s ease-in-out;
 }
 
 /* --- SECRET LETTERS --- */
-.letters-page { padding: 80px 20px; min-height: 100vh; }
+.letters-page { padding: 100px 20px; min-height: 100vh; }
 
-.letter-card {
-  padding: 40px;
-  margin-bottom: 20px;
-  transition: 0.4s;
-  cursor: pointer;
+.letters-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 60px;
+  text-align: center;
 }
 
-.letter-card:hover { transform: translateY(-10px); background: white; }
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.letter-card {
+  padding: 50px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.letter-card:hover { transform: translateY(-15px); background: white; }
+
+.envelope-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
 
 .letter-paper {
-  background: #fffef0;
-  padding: 60px 40px;
-  border-radius: 4px;
+  background: #fffef2;
+  padding: 80px 60px;
+  border-radius: 2px;
   box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
   line-height: 2.2;
   position: relative;
   max-width: 700px;
   margin: auto;
+  border-left: 2px solid rgba(255, 92, 138, 0.2);
 }
 
-.letter-paper::before {
-  content: '';
-  position: absolute;
-  left: 35px; top: 0; bottom: 0;
-  width: 2px;
-  background: rgba(255, 92, 138, 0.15);
+.letter-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
+  margin: 25px 0;
+  opacity: 0.2;
 }
 
 .letter-footer {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: var(--primary);
   text-align: right;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 /* --- ANIMATIONS --- */
-@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes lockEntrance { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes modalPop { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
 @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
 
@@ -261,6 +394,7 @@ body {
   bottom: -50px;
   animation: floatUp 6s ease-in forwards;
   pointer-events: none;
+  z-index: 10;
 }
 
 @keyframes floatUp {
@@ -268,11 +402,17 @@ body {
   100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- RESPONSIVE --- */
+.fade-up { animation: lockEntrance 0.8s ease forwards; }
+.slide-up { animation: modalPop 0.6s ease forwards; }
+
+/* --- RESPONSIVE OPTIMIZATION --- */
 @media (max-width: 768px) {
-  .heart-collage { transform: scale(0.7); height: 450px; margin: 0 auto; }
-  .title-animated { font-size: 3.5rem; }
+  .heart-collage { transform: scale(0.62); height: 420px; margin: 0 auto; }
+  .title-animated { font-size: 3.8rem; }
+  .lock-card { padding: 40px 25px; }
   .letter-paper { padding: 40px 25px; }
+  .letters-title { font-size: 3rem; }
 }
 
-.footer { padding: 80px 20px; text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--primary); }
+.footer { padding: 80px 20px; text-align: center; font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--primary); opacity: 0.7; }
+.clickable { cursor: pointer; text-decoration: underline; font-weight: 600; }
