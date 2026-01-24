@@ -15,6 +15,7 @@ function App() {
   const [showVideo, setShowVideo] = useState(false);
   const [responseType, setResponseType] = useState(null);
 
+  // Calculate days since the start date
   useEffect(() => {
     const startDate = new Date('2025-09-20');
     const today = new Date();
@@ -22,6 +23,7 @@ function App() {
     setDaysTogether(Math.ceil(diff / (1000 * 60 * 60 * 24)));
   }, []);
 
+  // Floating heart animation effect
   useEffect(() => {
     if (!unlocked) return;
     const interval = setInterval(() => {
@@ -47,6 +49,7 @@ function App() {
       <div className="lock-screen">
         <div className="bg-blobs"></div>
         
+        {/* Secret Video Modal - Easter Egg */}
         {showVideo && (
           <div className="video-overlay" onClick={() => setShowVideo(false)}>
             <div className="video-container glass" onClick={(e) => e.stopPropagation()}>
@@ -94,7 +97,11 @@ function App() {
             Unlock My Heart 💫
           </button>
           <p className="lock-hint">Hint: Something I always ask for 😉</p>
-          {heartCount >= 5 && <p className="secret-reveal clickable" onClick={() => setShowVideo(true)}>Click to re-watch surprise 🎥</p>}
+          {heartCount >= 5 && (
+            <p className="secret-reveal clickable" onClick={() => setShowVideo(true)}>
+              Click here to re-watch your surprise 🎥
+            </p>
+          )}
         </div>
       </div>
     );
@@ -105,14 +112,32 @@ function App() {
     return (
       <div className="letters-page">
         <div className="bg-blobs"></div>
-        <button className="back-btn" onClick={() => setSecondUnlocked(false)}>← Back</button>
-        <h1 className="letters-title">Secret Letters 🤍</h1>
+        <button className="back-btn" onClick={() => setSecondUnlocked(false)}>← Back to Memories</button>
+        <h1 className="letters-title">Secret Letters For You 🤍</h1>
+
         <div className="letters-grid">
           {[
-            { id: 1, title: 'Forever Yours', preview: 'Meri Jaaann...', full: `Meri Jaaann, mera bebuuuu, You are the prettiest and sweetest person Ive ever met... (Full Text Continued)` },
-            { id: 2, title: 'Safe Place', preview: 'You can feel secure...', full: `You can feel secure\nBebu, I know you have that insecurity... (Full Text Continued)` }
+            {
+              id: 1,
+              title: 'Forever Yours, In Every Lifetime',
+              preview: 'Meri Jaaann, mera bebuuuu…',
+              full: `Meri Jaaann, mera bebuuuu, You are the prettiest and sweetest person Ive ever met. You bring the best out of me... (Include full text here)`
+            },
+            {
+              id: 2,
+              title: 'You are my Safe Place',
+              preview: 'I will stay and we are forever bebu',
+              full: `You can feel secure\nBebu, I know you have that insecurity... (Include full text here)`
+            }
           ].map((letter) => (
-            <div key={letter.id} className="letter-card glass fade-up" onClick={() => { setOpenLetter(letter); audioRef.current?.play(); }}>
+            <div 
+              key={letter.id} 
+              className="letter-card glass fade-up" 
+              onClick={() => {
+                setOpenLetter(letter);
+                audioRef.current?.play();
+              }}
+            >
               <div className="envelope-icon">✉️</div>
               <h3>{letter.title}</h3>
               <p>{letter.preview}</p>
@@ -120,10 +145,11 @@ function App() {
             </div>
           ))}
         </div>
+
         {openLetter && (
           <div className="letter-modal fade-in" onClick={() => setOpenLetter(null)}>
             <div className="letter-paper slide-up" onClick={(e) => e.stopPropagation()}>
-              <button className="close-letter" onClick={() => setOpenLetter(null)}>×</button>
+              <button className="close-modal close-video" onClick={() => setOpenLetter(null)}>×</button>
               <h2>{openLetter.title}</h2>
               <div className="letter-divider"></div>
               <p>{openLetter.full}</p>
@@ -140,18 +166,40 @@ function App() {
     <div className="app-container">
       <div className="bg-blobs"></div>
       <audio ref={audioRef} src="/love.mp3" loop />
+
       <header className="hero">
-        <div className="title-wrapper glass"><h1 className="title-animated">Taysh</h1></div>
-        <p className="subtitle">Hey Tannu…<br /><span>This isn’t just a website.</span><br /><strong>It’s me choosing you again.</strong></p>
+        <div className="title-wrapper glass">
+          <h1 className="title-animated">Taysh</h1>
+        </div>
+        <p className="subtitle">
+          Hey Tannu…<br />
+          <span>This isn’t just a website.</span><br />
+          <strong>It’s me choosing you again.</strong>
+        </p>
       </header>
 
-      {/* HEART COLLAGE */}
+      {/* HEART COLLAGE SECTION */}
       <section className="section">
         <div className="content">
           <h2 className="section-title">Our Story in Frames 📸</h2>
           <div className="heart-collage">
-            {['p1.jpeg', 'p2.jpeg', 'p3.jpeg', 'p4.jpeg', 'p5.jpeg', 'p6.jpeg', 'p7.jpeg', 'p8.jpeg', 'p9.jpeg', 'p10.jpeg', 'p11.jpeg', 'p12.jpeg', 'p13.jpeg'].map((img, i) => (
-              <div key={i} className={`photo-piece pos-${i + 1}`} onMouseUp={(e) => { e.currentTarget.classList.add('shattered'); setTimeout(() => e.currentTarget.classList.remove('shattered'), 1000); }}>
+            {[
+              'p1.jpeg', 'p2.jpeg', 'p3.jpeg', 'p4.jpeg', 'p5.jpeg', 
+              'p6.jpeg', 'p7.jpeg', 'p8.jpeg', 'p9.jpeg', 'p10.jpeg', 
+              'p11.jpeg', 'p12.jpeg', 'p13.jpeg'
+            ].map((img, i) => (
+              <div 
+                key={i} 
+                className={`photo-piece pos-${i + 1}`} 
+                onMouseUp={(e) => {
+                  e.currentTarget.classList.add('shattered');
+                  setTimeout(() => e.currentTarget.classList.remove('shattered'), 1000);
+                }}
+                onTouchEnd={(e) => {
+                  e.currentTarget.classList.add('shattered');
+                  setTimeout(() => e.currentTarget.classList.remove('shattered'), 1000);
+                }}
+              >
                 <img src={`/${img}`} alt="memory" />
               </div>
             ))}
@@ -160,7 +208,7 @@ function App() {
         </div>
       </section>
 
-      {/* IMPORTANT QUESTION */}
+      {/* IMPORTANT QUESTION SECTION */}
       <section className="section">
         <div className="content">
           <div className="love-game glass">
@@ -168,16 +216,30 @@ function App() {
             {!celebrate ? (
               <div className="game-box">
                 <p className="question-text">Do you love me?</p>
-                <div className="doodle-container">{responseType === 'no' && <div className="doodle">😡👊</div>}</div>
-                <div className="love-buttons">
-                  <button className="yes-btn highlight" onClick={() => { setResponseType('yes'); popConfetti(); }}>Yes, I love you bebu 💖</button>
-                  <button className="no-btn normal" onClick={() => setResponseType('no')}>No 😒</button>
+                <div className="doodle-container">
+                  {responseType === 'no' && <div className="doodle">😡👊</div>}
                 </div>
-                {responseType === 'no' && <p className="angry-text fade-in">Marne se darr ni lagta kya? 🔪</p>}
+                <div className="love-buttons">
+                  <button 
+                    className="yes-btn highlight" 
+                    onClick={() => { setResponseType('yes'); popConfetti(); }}
+                  >
+                    Yes, I love you bebu 💖
+                  </button>
+                  <button 
+                    className="no-btn normal" 
+                    onClick={() => setResponseType('no')}
+                  >
+                    No 😒
+                  </button>
+                </div>
+                {responseType === 'no' && (
+                  <p className="angry-text fade-in">Marne se darr ni lagta kya? 🔪</p>
+                )}
               </div>
             ) : (
               <div className="celebrate-box fade-in">
-                <div className="doodle">🥰👩‍❤️‍👨✨</div>
+                <div className="doodle love-doodle">🥰👩‍❤️‍👨✨</div>
                 <h3>YAYYYYY 💕</h3>
                 <p>You were always mine and will be 🤍</p>
               </div>
@@ -186,25 +248,42 @@ function App() {
         </div>
       </section>
 
-      <section className="timeline glass-dark">
+      {/* COUNTER */}
+      <section className="timeline glass">
         <div className="stat-number">{daysTogether}</div>
         <p className="stat-text">Days of choosing you</p>
       </section>
 
+      {/* SECONDARY LOCK */}
       <section className="section">
         <div className="content">
           <div className="second-lock glass">
             <h2 className="section-title">One More Secret 👀</h2>
             {!secondUnlocked ? (
-              <div className="lock-inner">
+              <div className="lock-inner" style={{textAlign: 'center', padding: '20px'}}>
                 <p>This one is even more private.</p>
-                <input className="lock-input" placeholder="Enter the secret…" value={secondSecret} onChange={(e) => setSecondSecret(e.target.value)} />
-                <button className="lock-btn highlight" onClick={() => secondSecret.trim().toLowerCase() === 'meri future biwi' && setSecondUnlocked(true)}>Unlock 💌</button>
+                <input 
+                  className="lock-input" 
+                  placeholder="Enter the secret…" 
+                  value={secondSecret} 
+                  onChange={(e) => setSecondSecret(e.target.value)} 
+                />
+                <button 
+                  className="lock-btn highlight" 
+                  onClick={() => secondSecret.trim().toLowerCase() === 'meri future biwi' && setSecondUnlocked(true)}
+                >
+                  Unlock 💌
+                </button>
               </div>
-            ) : <p className="unlocked-text">Scroll up to check your letters 🤍</p>}
+            ) : (
+              <p className="unlocked-text" style={{textAlign: 'center', color: '#ff5c8a'}}>
+                Scroll back up to check your letters 🤍
+              </p>
+            )}
           </div>
         </div>
       </section>
+
       <footer className="footer">Made only for Tannu, by Yash 💖</footer>
     </div>
   );
