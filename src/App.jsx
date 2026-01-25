@@ -234,16 +234,20 @@ function App() {
             {/* ITEMS */}
             <div className="gift-items">
               <div className="bouquet">
-                <div className="flower"></div>
-                <div className="flower"></div>
-                <div className="flower"></div>
+                <div className="flower f1"></div>
+                <div className="flower f2"></div>
+                <div className="flower f3"></div>
+                <div className="stem"></div>
               </div>
-      
+              
               <div className="chocolate">
-                <div className="choco-block"></div>
-                <div className="choco-block"></div>
-                <div className="choco-block"></div>
+                <div className="choco-grid">
+                  <span></span><span></span>
+                  <span></span><span></span>
               </div>
+              <div className="choco-label">Chocolate</div>
+            </div>
+
             </div>
           </div>
       
