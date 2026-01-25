@@ -14,6 +14,8 @@ function App() {
   const [openLetter, setOpenLetter] = useState(null);
   const [showVideo, setShowVideo] = useState(false);
   const [responseType, setResponseType] = useState(null);
+  const [giftOpen, setGiftOpen] = useState(false);
+  const giftAudioRef = useRef(null);
 
   useEffect(() => {
     const startDate = new Date('2025-09-20');
@@ -96,7 +98,7 @@ function App() {
             className="letter-card glass fade-up" 
             onClick={() => {
               setOpenLetter(letter);
-              
+
               // Improved Audio Playback Logic
               if (audioRef.current) {
                 audioRef.current.play().catch(error => {
@@ -118,7 +120,13 @@ function App() {
               <button className="close-letter" onClick={() => setOpenLetter(null)}>×</button>
               <h2>{openLetter.title}</h2>
               <div className="letter-divider"></div>
-              <p>{openLetter.full}</p>
+              <div className="letter-content">
+                {openLetter.full.split('\n\n').map((para, i) => (
+                  <p key={i} style={{ animationDelay: `${i * 0.6}s` }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
               <div className="letter-footer">Forever Yours, Yash</div>
             </div>
           </div>
@@ -131,7 +139,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="bg-blobs"></div>
-      <audio ref={audioRef} src="/love.mp3" loop />
+      <audio ref={audioRef} src="/1.mp3" loop />
 
       <header className="hero">
         <div className="title-wrapper glass"><h1 className="title-animated">Taysh</h1></div>
@@ -198,6 +206,64 @@ function App() {
           </div>
         </div>
       </section>
+      {/* GIFT SURPRISE */}
+      <section className="section bg-pink">
+        <div className="content">
+          <h2 className="section-title">A Little Surprise 🎁</h2>
+      
+          <div
+            className={`gift-box ${giftOpen ? 'open' : ''}`}
+            onClick={() => {
+              if (!giftOpen) {
+                setGiftOpen(true);
+                confetti({ particleCount: 120, spread: 70 });
+                giftAudioRef.current.play();
+              } else {
+                setGiftOpen(false); // reset
+              }
+            }}
+          >
+            {/* LID */}
+            <div className="gift-lid"></div>
+      
+            {/* BOX */}
+            <div className="gift-body">
+              <div className="gift-heart"></div>
+            </div>
+      
+            {/* ITEMS */}
+            <div className="gift-items">
+              <div className="bouquet">
+                <div className="flower"></div>
+                <div className="flower"></div>
+                <div className="flower"></div>
+              </div>
+      
+              <div className="chocolate">
+                <div className="choco-block"></div>
+                <div className="choco-block"></div>
+                <div className="choco-block"></div>
+              </div>
+            </div>
+          </div>
+      
+          {!giftOpen && (
+            <p className="gift-hint">Tap the box 👀</p>
+          )}
+      
+          {giftOpen && (
+            <p className="gift-message">
+              Flowers, chocolate… and all my love 🤍
+              <br />
+              (Tap again to close 🎀)
+            </p>
+          )}
+      
+          {/* SOUND */}
+          <audio ref={giftAudioRef} src="/music/1.mp3" />
+        </div>
+      </section>
+
 
       <section className="timeline-section glass-dark">
         <div className="content">
@@ -245,6 +311,28 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* MOOD CHECK */}
+      <section className="section">
+       <div className="content">
+         <h2 className="section-title">Mood Check 💭</h2>
+         <div className="mood-grid">
+           <button onClick={() => alert("Come here 🤍 I'm holding you.")}>
+             🥺 Missing You
+           </button>
+           <button onClick={() => alert("Okay but you’re still cute 😏")}>
+             😤 Angry
+           </button>
+           <button onClick={() => alert("I knew it 😌 stay smiling")}>
+             😊 Happy
+           </button>
+           <button onClick={() => alert("Text me. Now.")}>
+             😔 Low
+           </button>
+         </div>
+       </div>
+      </section>
+
 
       <footer className="footer">Made only for Tannu, by Yash 💖</footer>
     </div>
