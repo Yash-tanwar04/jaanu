@@ -335,3 +335,132 @@ body { margin: 0; background: #fff5f8; font-family: 'Poppins', sans-serif; overf
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+/* =====================================================
+   🎁 GIFT BOX — ENHANCEMENTS (ADD-ONLY, NON-BREAKING)
+   ===================================================== */
+
+/* --- Box depth & premium shadow --- */
+.gift-body {
+  box-shadow:
+    inset 0 8px 0 rgba(255,255,255,0.15),
+    0 18px 35px rgba(0,0,0,0.25);
+  transform: translateZ(0);
+}
+
+/* --- Lid depth --- */
+.gift-lid {
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,0.15),
+    0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* =====================================================
+   🌸 BOUQUET — MAKE IT ACTUALLY LOOK LIKE FLOWERS
+   ===================================================== */
+
+/* Bouquet wrapper paper */
+.bouquet::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: -10px;
+  width: 90px;
+  height: 55px;
+  background: #fff1c1;
+  border-radius: 0 0 40px 40px;
+  transform: rotate(-6deg);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  z-index: -1;
+}
+
+/* Add extra flower petals (layered) */
+.flower {
+  box-shadow:
+    inset 0 0 0 6px #ffd166,
+    0 6px 10px rgba(0,0,0,0.2);
+}
+
+/* Extra petal illusion */
+.flower::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(255,92,138,0.25);
+  z-index: -1;
+}
+
+/* Slight random rotation for realism */
+.f1 { transform: rotate(-8deg); }
+.f2 { transform: rotate(6deg); }
+.f3 { transform: rotate(12deg); }
+
+/* Stem depth */
+.stem {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+}
+
+/* =====================================================
+   🍫 CHOCOLATE — MAKE IT RICH & 3D
+   ===================================================== */
+
+.choco-grid {
+  box-shadow:
+    inset 0 4px 0 rgba(255,255,255,0.15),
+    0 10px 20px rgba(0,0,0,0.3);
+  transform: rotate(-4deg);
+}
+
+.choco-grid span {
+  box-shadow:
+    inset 0 -3px 0 rgba(0,0,0,0.25),
+    inset 0 3px 0 rgba(255,255,255,0.08);
+}
+
+/* Wrapper paper under chocolate */
+.chocolate::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -10px;
+  width: 80px;
+  height: 40px;
+  background: #ffccd5;
+  border-radius: 8px;
+  transform: rotate(8deg);
+  z-index: -1;
+}
+
+/* =====================================================
+   ✨ 3D POLISH — PREMIUM FEEL
+   ===================================================== */
+
+/* Slight lift when box is open */
+.gift-box.open {
+  transform: translateY(-6px);
+}
+
+/* Items pop forward in 3D space */
+.gift-box.open .bouquet,
+.gift-box.open .chocolate {
+  transform: translateY(-80px) translateZ(20px);
+}
+
+/* Soft glow when open */
+.gift-box.open .gift-body {
+  box-shadow:
+    0 0 40px rgba(255,92,138,0.35),
+    0 25px 45px rgba(0,0,0,0.35);
+}
+
+/* =====================================================
+   💖 EXTRA CUTENESS — OPTIONAL BUT NICE
+   ===================================================== */
+
+.gift-box:hover {
+  transform: scale(1.02);
+}
+
+.gift-box:hover .gift-heart {
+  filter: drop-shadow(0 0 14px rgba(255,92,138,0.6));
+}
