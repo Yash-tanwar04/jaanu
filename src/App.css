@@ -464,3 +464,87 @@ body { margin: 0; background: #fff5f8; font-family: 'Poppins', sans-serif; overf
 .gift-box:hover .gift-heart {
   filter: drop-shadow(0 0 14px rgba(255,92,138,0.6));
 }
+/* ===============================
+   🌹 ROSE DAY PAGE (ADD ONLY)
+   =============================== */
+
+.rose-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ff1e56, #7a0018);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+.rose-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.rose-content {
+  max-width: 850px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.big-rose {
+  font-size: 7rem;
+  animation: rosePulse 2.8s infinite;
+}
+
+.rose-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin: 20px 0 40px;
+}
+
+.rose-letter {
+  font-size: 1.1rem;
+  line-height: 2;
+  white-space: pre-line;
+  animation: fadeInUp 1.4s ease forwards;
+}
+
+.rose-petals::before {
+  content: "🌹 🌸 🌹 🌸 🌹 🌸 🌹";
+  position: absolute;
+  inset: 0;
+  font-size: 2.2rem;
+  opacity: 0.25;
+  animation: petalsFall 14s linear infinite;
+}
+
+.rose-trigger {
+  margin-top: 10px;
+  font-size: 2.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulseHint 1.6s infinite;
+}
+
+.rose-trigger span {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+@keyframes petalsFall {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes rosePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
